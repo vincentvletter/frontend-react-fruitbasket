@@ -13,6 +13,8 @@ function App() {
 
     const {register, handleSubmit} = useForm();
 
+    let tester = "";
+
     function reset() {
         setStrawberry(strawberry - strawberry)
         setBanana(banana - banana)
@@ -25,6 +27,9 @@ function App() {
         console.log(`Aardbeien ${strawberry},\nBananen ${banana},\nAppels ${apple},\nKiwi's ${kiwi}`);
         reset();
     }
+    if(strawberry >= 5) {
+        tester = "red";
+    }
 
     return (
         <>
@@ -35,12 +40,15 @@ function App() {
                     title=" 🍓 Aardbeien 🍓 "
                     state={strawberry}
                     setState={setStrawberry}
+                    tester={tester}
                 />
+                {strawberry >= 5 &&  <p>🍓You love them strawberry's🍓</p>}
                 <Tile
                     title=" 🍌 Bananen 🍌 "
                     state={banana}
                     setState={setBanana}
                 />
+                {banana >= 5 && <p> 🍌 My shit is banana's 🍌</p>}
                 <Tile
                     title=" 🍏 Appels 🍏 "
                     state={apple}
@@ -102,7 +110,6 @@ function App() {
                         name="when-to-deliver"
                         value="during-the-day"
                         {...register("when-to-deliver")}
-
                     />
                 </label>
                 <label htmlFor="during-the-evening">
@@ -113,7 +120,6 @@ function App() {
                         name="when-to-deliver"
                         value="during-the-evening"
                         {...register("when-to-deliver")}
-
                     />
                 </label>
                 <label htmlFor="comments">
@@ -142,7 +148,6 @@ function App() {
                     Versturen
                 </button>
             </form>
-
         </>
     );
 }

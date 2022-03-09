@@ -22,9 +22,15 @@ button {
     background-color: rosybrown;
 }
 
+.red {
+    border-color: red;
+}
+
 .Bananen {
     background-color: lightyellow;
 }
+
+
 
 .Appels {
     background-color: #b5e7a0;
